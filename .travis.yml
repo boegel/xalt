@@ -1,0 +1,24 @@
+language: python
+sudo: false
+
+env:
+  - GCC_PKG_VER='4.9'
+  - GCC_PKG_VER='5'
+  - GCC_PKG_VER='6'
+
+addons:
+  apt:
+    packages:
+      - gcc-${GCC_PKG_VER}
+
+before_install:
+  - cd $HOME
+  # install Themis test tool
+  - git clone https://github.com/rtmclay/Themis.git
+  - export PATH="$PATH:$HOME/Themis/bin"
+  - cd -
+
+script:
+  - g++ --version
+  # run XALT test suite with Hermes
+  - rtm .
