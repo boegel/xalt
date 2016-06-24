@@ -3,10 +3,26 @@ sudo: false
 
 matrix:
   include:
-    - addons: { apt: {packages: [gcc-4.8, g++-4.8]}}
-    - addons: { apt: {packages: [gcc-4.9, g++-4.9]}}
-    - addons: { apt: {packages: [gcc-5, g++-5]}}
-    - addons: { apt: {packages: [gcc-6, g++-6]}}
+    - addons:
+      apt:
+        packages:
+          - gcc-4.8
+          - g++-4.8
+    - addons:
+      apt:
+        packages:
+          - gcc-4.9
+          - g++-4.9
+    - addons:
+      apt:
+        packages:
+          - gcc-5
+          - g++-5
+    - addons:
+      apt:
+        packages:
+          - gcc-6
+          - g++-6
 
 before_install:
   - cd $HOME
