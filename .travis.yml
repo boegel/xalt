@@ -1,16 +1,12 @@
 language: python
 sudo: false
 
-env:
-  - GCC_PKG_VER='4.9'
-  - GCC_PKG_VER='5'
-  - GCC_PKG_VER='6'
-
-addons:
-  apt:
-    packages:
-      - gcc-$GCC_PKG_VER
-      - g++-$GCC_PKG_VER
+matrix:
+  include:
+    - addons: { apt: {packages: [gcc-4.8, g++-4.8]}}
+    - addons: { apt: {packages: [gcc-4.9, g++-4.9]}}
+    - addons: { apt: {packages: [gcc-5, g++-5]}}
+    - addons: { apt: {packages: [gcc-6, g++-6]}}
 
 before_install:
   - cd $HOME
@@ -21,5 +17,6 @@ before_install:
 
 script:
   - g++ --version
+  - pwd && ./configure && make && make install
   # run XALT test suite with Hermes
   - rtm .
