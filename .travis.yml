@@ -10,6 +10,7 @@ addons:
   apt:
     packages:
       - gcc-${GCC_PKG_VER}
+      - g++-${GCC_PKG_VER}
 
 before_install:
   - cd $HOME
