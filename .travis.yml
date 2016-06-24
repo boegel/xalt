@@ -40,6 +40,8 @@ before_install:
 
 script:
   - g++ --version
+  - env | sort
+  - $CXX --version
   - pwd && ./configure && make && make install
   # run XALT test suite with Hermes
   - rtm .
