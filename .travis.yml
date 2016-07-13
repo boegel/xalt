@@ -1,35 +1,23 @@
 language: c++
 
+addons:
+  apt:
+    sources: ['ubuntu-toolchain-r-test']
+
 matrix:
   include:
     addons:
       apt:
-        sources:
-        - ubuntu-toolchain-r-test
-        packages:
-        - gcc-4.8
-        - g++-4.8
+        packages: ['gcc-4.8', 'g++-4.8']
     addons:
       apt:
-        sources:
-        - ubuntu-toolchain-r-test
-        packages:
-        - gcc-4.9
-        - g++-4.9
+        packages: ['gcc-4.9', 'g++-4.9']
     addons:
       apt:
-        sources:
-        - ubuntu-toolchain-r-test
-        packages:
-        - gcc-5
-        - g++-5
+        packages: ['gcc-5', 'g++-5']
     addons:
       apt:
-        sources:
-        - ubuntu-toolchain-r-test
-        packages:
-        - gcc-6
-        - g++-6
+        packages: ['gcc-6', 'g++-6']
 
 before_install:
   - cd $HOME
